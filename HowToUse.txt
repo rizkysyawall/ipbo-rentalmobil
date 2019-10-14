@@ -1,0 +1,27 @@
+How To Used :
+
+1. Ekstrak file yang sudah di download RentalMobil.zip
+2. Buka Netbeans IDE.
+3. Open Project RentalMobil
+4. Project Tersebut akan meminta libraries yang hilang.
+5. libraries yang hilang sudah ada di folder Library Jasper, kalian bisa download.
+	-> commons-beanutils-1.8.2
+	-> commons-collections-3.2.1
+	-> commons-digester-1.7
+	-> commons-logging-1.1
+	-> groovy-all-1.7.5
+	-> iText-2.1.7
+	-> iTextAsian
+	-> jasperreports-4.0.2
+	-> jfreechart-1.0.12
+6. Jika sudah, resolve library yang hilang.
+7. Masih terdapat 2 libraries yang hilang yaitu :
+	-> Absolute Layout 
+	-> MySQL JDBC Driver
+8. Resolve 2 libraries yang hilang tadi dengan cara :
+	- Klik kanan pada folder libraries di folder projects di netbeans kalian.
+	- Add Library
+	- Klik Import
+	- Lalu pilih Absolute Layout kemudian Add
+	- Lalu pilih MySQL JDBC Driver kemudian Add
+9. Selesai - Run Project
