@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     buktisewa.`nobsm` AS buktisewa_nobsm,
+     buktisewa.`nmcabang` AS buktisewa_nmcabang,
+     buktisewa.`kdmobil` AS buktisewa_kdmobil,
+     buktisewa.`merek` AS buktisewa_merek,
+     buktisewa.`hrgsewa` AS buktisewa_hrgsewa,
+     buktisewa.`qty` AS buktisewa_qty,
+     buktisewa.`total` AS buktisewa_total,
+     buktisewa.`tglsewa` AS buktisewa_tglsewa,
+     buktisewa.`tglkembali` AS buktisewa_tglkembali,
+     buktisewa.`nonpwp` AS buktisewa_nonpwp,
+     buktisewa.`noidplg` AS buktisewa_noidplg,
+     detilsewa.`nobsm` AS detilsewa_nobsm,
+     detilsewa.`kdmobil` AS detilsewa_kdmobil,
+     detilsewa.`hrgsewa` AS detilsewa_hrgsewa,
+     detilsewa.`jmlsewa` AS detilsewa_jmlsewa,
+     mobil.`kdmobil` AS mobil_kdmobil,
+     mobil.`merek` AS mobil_merek,
+     mobil.`model` AS mobil_model,
+     mobil.`thnbuat` AS mobil_thnbuat,
+     mobil.`jmlmobil` AS mobil_jmlmobil,
+     mobil.`hrgsewa` AS mobil_hrgsewa,
+     mobil.`nonpwp` AS mobil_nonpwp,
+     mobil.`nmcabang` AS mobil_nmcabang,
+     pelanggan.`noidplg` AS pelanggan_noidplg,
+     pelanggan.`jenisidplg` AS pelanggan_jenisidplg,
+     pelanggan.`nmplg` AS pelanggan_nmplg,
+     pelanggan.`alamatplg` AS pelanggan_alamatplg,
+     pelanggan.`tgllahirplg` AS pelanggan_tgllahirplg,
+     pelanggan.`notlpplg` AS pelanggan_notlpplg,
+     rental.`nonpwp` AS rental_nonpwp,
+     rental.`nmcabang` AS rental_nmcabang,
+     rental.`alamatrental` AS rental_alamatrental,
+     rental.`notlprental` AS rental_notlprental,
+     rental.`jmlstok` AS rental_jmlstok
+FROM
+     `detilsewa` detilsewa INNER JOIN `mobil` mobil ON detilsewa.`kdmobil` = mobil.`kdmobil`
+     INNER JOIN `buktisewa` buktisewa ON detilsewa.`nobsm` = buktisewa.`nobsm`
+     AND buktisewa.`kdmobil` = mobil.`kdmobil`
+     INNER JOIN `rental` rental ON buktisewa.`nonpwp` = rental.`nonpwp`
+     INNER JOIN `pelanggan` pelanggan ON buktisewa.`noidplg` = pelanggan.`noidplg`
+     AND mobil.`nonpwp` = rental.`nonpwp`]]>
+	</queryString>
+	<field name="buktisewa_nobsm" class="java.lang.String"/>
+	<field name="buktisewa_nmcabang" class="java.lang.String"/>
+	<field name="buktisewa_kdmobil" class="java.lang.String"/>
+	<field name="buktisewa_merek" class="java.lang.String"/>
+	<field name="buktisewa_hrgsewa" class="java.lang.Integer"/>
+	<field name="buktisewa_qty" class="java.lang.Integer"/>
+	<field name="buktisewa_total" class="java.lang.String"/>
+	<field name="buktisewa_tglsewa" class="java.sql.Date"/>
+	<field name="buktisewa_tglkembali" class="java.sql.Date"/>
+	<field name="buktisewa_nonpwp" class="java.lang.String"/>
+	<field name="buktisewa_noidplg" class="java.lang.String"/>
+	<field name="detilsewa_nobsm" class="java.lang.String"/>
+	<field name="detilsewa_kdmobil" class="java.lang.String"/>
+	<field name="detilsewa_hrgsewa" class="java.lang.Integer"/>
+	<field name="detilsewa_jmlsewa" class="java.lang.String"/>
+	<field name="mobil_kdmobil" class="java.lang.String"/>
+	<field name="mobil_merek" class="java.lang.String"/>
+	<field name="mobil_model" class="java.lang.String"/>
+	<field name="mobil_thnbuat" class="java.sql.Date"/>
+	<field name="mobil_jmlmobil" class="java.lang.Integer"/>
+	<field name="mobil_hrgsewa" class="java.lang.Integer"/>
+	<field name="mobil_nonpwp" class="java.lang.String"/>
+	<field name="mobil_nmcabang" class="java.lang.String"/>
+	<field name="pelanggan_noidplg" class="java.lang.String"/>
+	<field name="pelanggan_jenisidplg" class="java.lang.String"/>
+	<field name="pelanggan_nmplg" class="java.lang.String"/>
+	<field name="pelanggan_alamatplg" class="java.lang.String"/>
+	<field name="pelanggan_tgllahirplg" class="java.sql.Date"/>
+	<field name="pelanggan_notlpplg" class="java.lang.String"/>
+	<field name="rental_nonpwp" class="java.lang.String"/>
+	<field name="rental_nmcabang" class="java.lang.String"/>
+	<field name="rental_alamatrental" class="java.lang.String"/>
+	<field name="rental_notlprental" class="java.lang.String"/>
+	<field name="rental_jmlstok" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="308" y="23" width="209" height="26"/>
+				<textElement>
+					<font fontName="Comic Sans MS" size="15" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NOTA TRANSAKSI SEWA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="361" y="49" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{buktisewa_nobsm}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="83" splitType="Stretch">
+			<staticText>
+				<reportElement x="18" y="13" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Kode Pelanggan  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="33" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nama Pelanggan :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="118" y="13" width="120" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{buktisewa_noidplg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="33" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{pelanggan_nmplg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="53" width="138" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{pelanggan_notlpplg}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="475" y="13" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tanggal Sewa  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="33" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tanggal Kembali:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="575" y="13" width="132" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{buktisewa_tglsewa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="575" y="33" width="132" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{buktisewa_tglkembali}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="28" y="41" width="86" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Kode Mobil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="41" width="114" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Merek Mobil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="41" width="114" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nama Cabang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="41" width="114" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Alamat Cabang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="41" width="114" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Harga Sewa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="570" y="41" width="114" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Jumlah Mobil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="684" y="41" width="114" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="41" width="28" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="28" y="0" width="86" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{buktisewa_kdmobil}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="0" width="114" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{buktisewa_merek}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="0" width="114" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{buktisewa_hrgsewa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="570" y="0" width="114" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{buktisewa_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="684" y="0" width="114" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{buktisewa_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="0" width="114" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{rental_nmcabang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="342" y="0" width="114" height="20"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{rental_alamatrental}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="28" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
